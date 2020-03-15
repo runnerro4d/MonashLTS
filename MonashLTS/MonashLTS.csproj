@@ -540,6 +540,7 @@
     <Content Include="Views\Units\Details.cshtml" />
     <Content Include="Views\Units\Edit.cshtml" />
     <Content Include="Views\Units\Index.cshtml" />
+    <Content Include="Views\Comments\CaseComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003150457304_Dates.resx">

@@ -21,6 +21,12 @@ namespace MonashLTS.Controllers
             return View(comments.ToList());
         }
 
+        public ActionResult CaseComments(string id)
+        {
+            List<Comment> c = db.Comments.Where(d => d.CurrentCase_id == id).ToList();
+            return View(c);
+        }
+
         // GET: Comments/Details/5
         public ActionResult Details(int? id)
         {
