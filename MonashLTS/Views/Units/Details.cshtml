@@ -1,0 +1,51 @@
+﻿@model MonashLTS.Models.Unit
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Unit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitVer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitVer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitClass)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
