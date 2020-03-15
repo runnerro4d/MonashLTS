@@ -10,43 +10,94 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CaseManager.FirstNameCM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.CourseTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TeachingAssistant.FirstNameTA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unit.UnitCode)
-        </th>
-        <th></th>
-    </tr>
+<table id="Case" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CaseManager.FirstNameCM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.CourseTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeachingAssistant.FirstNameTA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit.UnitCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CaseManager.FirstNameCM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.CourseTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeachingAssistant.FirstNameTA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Unit.UnitCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaseManager.FirstNameCM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.CourseTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeachingAssistant.FirstNameTA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unit.UnitCode)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>CMName</th>
+                <th>Student Alias</th>
+                <th>TA Name</th>
+                <th>Unit Code</th>
+            </tr>
+        </tfoot>
+    }
 
 </table>
+
+<link href="~/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+@section scripts
+{
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#Case tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            }).appendTo("#Case thead");
+
+            // DataTable
+            var table = $('#Case').DataTable();
+
+            // Apply the search
+            table.columns().every(function () {
+                var that = this;
+
+                $('input', this.footer()).on('keyup change clear', function () {
+                    if (that.search() !== this.value) {
+                        that
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+        });
+
+    </script>
+
+}
+
+
