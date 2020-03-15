@@ -184,6 +184,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003150457304_Dates.cs" />
+    <Compile Include="Migrations\202003150457304_Dates.Designer.cs">
+      <DependentUpon>202003150457304_Dates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Case.cs" />
     <Compile Include="Models\CaseManager.cs" />
@@ -300,7 +305,11 @@
     <Content Include="Views\Units\Edit.cshtml" />
     <Content Include="Views\Units\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003150457304_Dates.resx">
+      <DependentUpon>202003150457304_Dates.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

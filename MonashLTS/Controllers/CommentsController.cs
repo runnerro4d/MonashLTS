@@ -54,8 +54,11 @@ namespace MonashLTS.Controllers
             comment.CaseManager = db.CaseManagers.Find(comment.AssignedCM_id);
             comment.Case = db.Cases.Find(comment.CurrentCase_id);
 
-            comment.CreatedDate = DateTime.UtcNow;
 
+
+            comment.CreatedDate = DateTime.Now;
+
+            
             ModelState.Clear();
             TryValidateModel(comment);
 
@@ -96,9 +99,9 @@ namespace MonashLTS.Controllers
         public ActionResult Edit([Bind(Include = "id,CreatedDate,CommentText,Action,ClosedDate,AssignedCM_id,CurrentCase_id")] Comment comment)
         {
             
-            if (comment.Action == "Closed")
+            if (comment.Action.Equals("Closed"))
             {
-                comment.ClosedDate = DateTime.UtcNow;
+                comment.ClosedDate = DateTime.Now;
             }
 
             if (ModelState.IsValid)

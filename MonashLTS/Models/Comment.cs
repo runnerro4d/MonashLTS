@@ -10,6 +10,7 @@ namespace MonashLTS.Models
     {
         public int id { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
 
         public string CommentText { get; set; }
@@ -17,7 +18,8 @@ namespace MonashLTS.Models
         [Required]
         public string Action { get; set; }
 
-        public DateTime ClosedDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:mm tt}", ApplyFormatInEditMode = true)]
+        public DateTime? ClosedDate { get; set; }
 
         [StringLength(128)]
         public string AssignedCM_id { get; set; }

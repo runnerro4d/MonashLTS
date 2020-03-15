@@ -103,3 +103,5 @@ C:\Users\aadit\source\repos\MonashLTS\MonashLTS\obj\Debug\MonashLTS.csproj.CopyC
 C:\Users\aadit\source\repos\MonashLTS\MonashLTS\obj\Debug\MonashLTS.dll
 C:\Users\aadit\source\repos\MonashLTS\MonashLTS\obj\Debug\MonashLTS.pdb
 C:\Users\aadit\source\repos\MonashLTS\MonashLTS\obj\Debug\MonashLTS.csprojAssemblyReference.cache
+C:\Users\aadit\source\repos\MonashLTS\MonashLTS\obj\Debug\MonashLTS.Migrations.Dates.resources
+C:\Users\aadit\source\repos\MonashLTS\MonashLTS\obj\Debug\MonashLTS.csproj.GenerateResource.cache
